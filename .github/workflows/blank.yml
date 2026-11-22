@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Xep file vao thu muc
         run: |
-          unzip -o dls-bot-flat.zip -d flat
+                    unzip -o "$(find . -name '*flat*.zip' -not -path './.git/*' | head -1)" -d flat
           mkdir -p proj/app/src/main/java/com/dlsbot proj/app/src/main/res/values proj/app/src/main/res/xml
           cd flat
           cp settings.gradle.kts build.gradle.kts ../proj/
